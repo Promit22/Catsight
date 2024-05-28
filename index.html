@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <title>Pet explorer</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <header>
+    <h4>Cat Sight</h4>
+  </header>
+  <main>
+    <img src="./cats.jpg" alt="three kittens" id="heroImg">
+    <div id="aniText">
+      <h1>Explore</h1>
+      <h3>Find</h3>
+      <h4>Learn</h4>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search breeds eg. bengal">
+      <button type="submit" onclick="bringIt()">Search</button>
+      <ul id="suggestions" class="hidden"></ul>
+    </div>
+
+    <div id="searched-cat" class="cat-card">
+      <img src="" alt="" id="image">
+      <h2 id="name"></h2>
+      <p id="des"></p>
+      <p id="temperament"></p>
+      <a href="" id="wiki">Learn more</a>
+    </div>
+
+    <button id="explore">
+      Browse all Cats
+    </button>
+
+    <div class="card-container">
+      
+    </div>
+
+  </main>
+ 
+  <script src="./scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+:root {
+  --blueGrey: #647C90;
+  --ivory: #E2DED0;
+  --coolGray: #4E4F50;
+  --gray: #746C70;
+}
+
+html body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: var(--ivory);
+  color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background-color: var(--blueGrey);
+  width: 100vw;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+header h4 {
+  text-align: center;
+  font-family: cursive, sans-serif;
+  font-size: 30px;
+  margin: 0;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#heroImg {
+  position: relative;
+  width: 85vw;
+  height: auto;
+  z-index: -1;
+  padding: 50px 0;
+  margin-top: 50px;
+  left: 9vw;
+  border-radius: 100%;
+}
+
+#aniText {
+  position: absolute;
+  z-index: 7;
+  top: 18vh;
+  left: 20vw;
+  text-transform: uppercase;
+}
+
+#aniText h1 {
+  font-weight: 300;
+  font-size: 10vw;
+  transform: translateX(40vw);
+  opacity: 0;
+  color: var(--ivory);
+  animation: reveal1 2s ease-in-out 0.1s forwards;
+}
+
+@keyframes reveal1 {
+  from {
+    transform: translateX(40vw);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#aniText h3 {
+  font-weight: 400;
+  font-size: 8vw;
+  transform: translateX(-100vw);
+  opacity: 0;
+  color: #FFFFFF;
+  animation: reveal2 2s ease-in-out 1s forwards
+}
+
+@keyframes reveal2 {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#aniText h4 {
+  font-weight: 300;
+  font-size: 8vw;
+  color: var(--blueGrey);
+  opacity: 0;
+  animation: reveal3 1s ease-out 3s forwards;
+}
+
+@keyframes reveal3 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+.search-bar {
+  left: calc(50% - 100px);
+  position: relative;
+  /* Needed for positioning suggestions */
+}
+
+#search-input {
+  background: var(--gray);
+ /* margin-bottom: 30px;*/
+  color: var(--ivory);
+  padding: 10px;
+  margin-right: 15px;
+  border: 1px solid #ccc;
+  width: 200px;
+  /* Adjust width as needed */
+  
+}
+
+#search-input::placeholder {
+  color: var(--ivory);
+}
+
+#suggestions {
+  position: absolute;
+  /* Position suggestions below the input */
+  top: 100%;
+  /* Offset from input bottom */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  /* Limit suggestion list height (optional) */
+  overflow-y: auto;
+  /* Enable scrolling if suggestions overflow */
+  display: none;
+  /* Initially hidden */
+}
+
+#suggestions li {
+  padding: 5px 10px;
+  cursor: pointer;
+  /* Style for clickable suggestions */
+}
+
+#suggestions li:hover {
+  background-color: #eee;
+  /* Highlight on hover */
+}
+
+.cat-card {
+  background-color: var(--coolGray);
+  color: var(--ivory);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 30px auto 30px auto;
+  padding: 15px;
+  text-align: center;
+  width: 300px;
+  /* Adjust width as needed */
+  display: none;
+}
+
+.cat-card img {
+  width: 100%;
+  /* Stretch image to fill card width */
+  border-radius: 5px;
+  /* Match card border radius */
+}
+
+.cat-card h2 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.cat-card p {
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.card-container {
+  display: flex;
+  /* Arrange cards horizontally */
+  flex-wrap: wrap;
+  /* Allow cards to wrap onto multiple lines */
+  justify-content: center;
+  margin: 20px;
+  /* Add some margin for spacing */
+}
+
+.card {
+  background-color: var(--coolGray);
+  /* Card background color */
+  color: var(--ivory);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Add a slight shadow */
+  border-radius: 5px;
+  /* Rounded corners */
+  margin: 10px;
+  /* Add some margin between cards */
+  cursor: pointer;
+  /* Change cursor to indicate clickability */
+  transition: height 1s ease-in-out;
+  /* Smooth animation for expand/collapse */
+  width: 300px;
+  /* Adjust width as needed */
+  height: 50px;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Slight hover effect */
+}
+
+.card-name {
+  text-align: center;
+  padding: 15px;
+  /* Padding for the card name */
+  padding-top: 8px;
+  margin: 5px;
+  text-transform: uppercase;
+}
+
+.card-content {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  /*animation: expand 1s ease-in-out;*/
+  padding: 15px;
+  /* Padding for the content */
+  /*display: none;*/
+  /*Initially hidden*/
+}
+
+.card img {
+  width: 100%;
+  /* Make image fit the card width */
+  margin-bottom: 10px;
+  /* Add some space below the image */
+}
+
+.card-description {
+  margin-bottom: 10px;
+  /* Add some space below the description */
+}
+
+.card.expanded {
+  height: 450px;
+  overflow-y: auto;
+}
+
+.card.expanded .card-content {
+  display: block;
+  height: auto;
+  opacity: 1;
+}
+
+#explore {
+  background-color: var(--blueGrey);
+  border: none;
+  width: 150px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  #heroImg {
+    width: 70vw;
+    margin-top: 20px;
+  }
+  
+  #aniText {
+    top: 90px;
+    /*left: 25vw;*/
+  }
+  #search-input {
+    width: 300px;
+  }
+  
+  .search-bar {
+    left: calc(50% - 150px);
+  }
+}
