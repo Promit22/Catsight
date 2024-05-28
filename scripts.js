@@ -24,7 +24,6 @@ async function fetcher() {
     localStorage.setItem('kat', JSON.stringify(json));
     listMaker(json);
   } catch (err) { alert('Error: ' + err.message);}
-  //console.log(sugArr);
   
 }
 
@@ -38,22 +37,16 @@ function listMaker(catData) {
   localStorage.setItem('list', JSON.stringify(slist));
 }
 
-
-//console.log(catObj);
-//console.log(sugArr);
-
 searchInput.addEventListener("keyup", () => {
   let sugArr = JSON.parse(localStorage.getItem('list'));
   if(sugArr) {
-  const searchTerm = searchInput.value.toLowerCase(); // Get user input in lowercase
+  const searchTerm = searchInput.value.toLowerCase();
   const suggestions = sugArr.filter(
-    (term) => term.startsWith(searchTerm) // Filter based on search term
+    (term) => term.startsWith(searchTerm)
   );
 
-  // Clear existing suggestions
   suggestionsList.innerHTML = "";
 
-  // Create and append suggestions
   suggestions.forEach((s) => {
     const suggestionItem = document.createElement("li");
     suggestionItem.textContent = s;
@@ -63,7 +56,6 @@ searchInput.addEventListener("keyup", () => {
     suggestionsList.appendChild(suggestionItem);
   });
 
-  // Show or hide suggestions list
   suggestionsList.style.display = suggestions.length > 0 ? "block" : "none";
 }
 });
@@ -77,7 +69,6 @@ let wiki = document.getElementById('wiki');
 
 function bringIt() {
   let catObj = JSON.parse(localStorage.getItem('kat'));
-  //console.log(catObj);
 
   let lowerSearch = searchInput.value.toLowerCase();
   for (let cats of catObj) {
@@ -99,7 +90,6 @@ function bringIt() {
 
 let explore = document.getElementById('explore');
 
-//cards.addEventListener('click', () => {cards.style.animation = 'expand 1s ease-in-out 0s forward';});
 
 explore.addEventListener('click', () => {
   let catObj = JSON.parse(localStorage.getItem('kat'));
