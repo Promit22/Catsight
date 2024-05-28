@@ -19,7 +19,7 @@ document.addEventListener('click', (event) => {
 
 async function fetcher() {
   try {
-    let req = await fetch("https://api.thecatapi.com/v1/breeds", { method: 'GET', headers: { 'x-api-key': 'live_0GNo1gdJyt1dzjLKoez5uyfuQcIjvPj1ZZD0JSCsUFdsPu5KUhE3NigjE66mGHIf'} });    
+    let req = await fetch("https://api.thecatapi.com/v1/breeds", { method: 'GET', headers: { 'x-api-key': 'api-key'} });    
     let json = await req.json();
     localStorage.setItem('kat', JSON.stringify(json));
     listMaker(json);
