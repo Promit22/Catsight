@@ -81,6 +81,7 @@ function bringIt() {
       desc.textContent = cats.description;
       temparament.textContent = 'Temperament: ' + cats.temperament;
       wiki.href = cats.wikipedia_url;
+      wiki.target = "_blank";
       return '';
     }
   }
@@ -119,6 +120,7 @@ let container = document.querySelector('.card-container');
    let link = document.createElement('a');
    link.href = cats.wikipedia_url;
    link.textContent = 'Learn more-';
+   link.target = "_blank";
    content.appendChild(link);
    
    card.appendChild(content);
